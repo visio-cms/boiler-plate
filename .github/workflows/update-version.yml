@@ -1,0 +1,97 @@
+name: Update version workflow
+
+on:
+  push:
+    branches:
+      - main
+jobs:
+  update_version:
+    runs-on: ubuntu-latest
+    if: "!contains(github.event.head_commit.message, '/release/')"
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
+        
+      - name: Use Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20' 
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Get package version
+        id: get_version
+        run: echo ::set-output name=version::$(node -p "require('./package.json').version")
+
+      - name: Determine version
+        id: determine_version
+        run: |
+          version=$(node -p "require('./package.json').version")
+          commit_message=$(git log --format=%B -n 1 ${{ github.sha }})
+          if [[ $commit_message == feat* ]]; then
+            major=$(echo $version | cut -d. -f1)
+            minor=$(echo $version | cut -d. -f2)
+            patch=$(echo $version | cut -d. -f3)
+            major=$((major + 1))
+            new_version="$major.$minor.$patch"
+          elif [[ $commit_message == fix* ]]; then
+            major=$(echo $version | cut -d. -f1)
+            minor=$(echo $version | cut -d. -f2)
+            patch=$(echo $version | cut -d. -f3)
+            minor=$((minor + 1))
+            new_version="$major.$minor.$patch"
+          else
+            major=$(echo $version | cut -d. -f1)
+            minor=$(echo $version | cut -d. -f2)
+            patch=$(echo $version | cut -d. -f3)
+            patch=$((patch + 1))
+            new_version="$major.$minor.$patch"
+          fi
+          echo "::set-output name=version::$new_version"
+      
+      - name: Create version-bump branch
+        run: |
+          git config user.email "actions@github.com"
+          git config user.name "GitHub Actions"
+
+      - name: Update the version
+        id: update_version
+        run: |
+          echo "version=$(npm version ${{ steps.determine_version.outputs.version }} --no-git-tag-version)" >> $GITHUB_OUTPUT
+
+      - name: Update Changelog
+        id: update_changelog
+        run: |
+          sed -i 's/Unreleased/${{ steps.update_version.outputs.version }}/g'   CHANGELOG.md
+
+      - name: Create pull request
+        id: create_pr
+        uses: peter-evans/create-pull-request@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          branch: release/${{ steps.update_version.outputs.version }}
+          title: "Release: ${{ steps.update_version.outputs.version }} Pull Request"
+          body: "This pull request contains the updated package.json with the new release version"
+          base: main
+          labels: |
+            automerge
+            automated pr
+      
+      - name: Get pull request number
+        id: get_pr_number
+        run: |
+          PR_NUMBER=$(curl -s -H "Authorization: Bearer ${{ secrets.GITHUB_TOKEN }}" "https://api.github.com/repos/${{ github.repository }}/pulls?head=release/${{ steps.update_version.outputs.version }}&base=main" | jq -r '.[0].number')
+          echo "::set-output name=number::$PR_NUMBER"
+
+      - name: Merge pull request
+        if: steps.get_pr_number.outputs.number
+        run: |
+          TOKEN=${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER=${{ steps.get_pr_number.outputs.number }}
+          curl -X PUT -H "Authorization: token $TOKEN" https://api.github.com/repos/${{ github.repository }}/pulls/$PR_NUMBER/merge
+
+
+
+
+      
