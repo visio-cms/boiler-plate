@@ -13,8 +13,25 @@ import Features from '@/components/blocks/features';
 import NewsLetter from '@/components/blocks/newsLetter';
 import Footer from '@/components/blocks/footer';
 import LoginForm from '@/components/blocks/login-form';
-
+import MyFirstBlock from '@/components/blocks/MyFirstBlock';
 const registeredBlocks: Block[] = [
+  {
+    component: MyFirstBlock,
+    title: 'My First Block',
+    icon: <ImageIcon />,
+    defaultInputs: {
+      title: 'This is my first title',
+      subTitle:
+        "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
+      image: {},
+    },
+    controllers: [
+      { name: 'title', type: 'text', label: 'Title' },
+      { name: 'subTitle', type: 'richText', label: 'Sub Title' },
+      { name: 'image', type: 'image', label: 'Side Image' },
+    ],
+    key: 'myFirstBlock',
+  },
   {
     component: WorkWithUs,
     title: 'Work with us',

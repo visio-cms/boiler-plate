@@ -1,6 +1,6 @@
 'use client';
 
-import registeredBlocks from '@/components/blocks_registery';
+import registeredBlocks from '@/components/blocks_registry';
 import { Builder, type BuilderProps } from 'visio-cms';
 
 const VisioBuilderPage = ({

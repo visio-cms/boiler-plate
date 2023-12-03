@@ -1,5 +1,5 @@
 'use client';
-import registeredBlocks from '@/components/blocks_registery';
+import registeredBlocks from '@/components/blocks_registry';
 import { JWTPayload } from 'jose';
 import { RenderPageContent, EditPageButton, type PageBlock, type GlobalBlock } from 'visio-cms';
 

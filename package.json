@@ -9,11 +9,6 @@
     "format": "prettier --write '**/*.ts' '**/*.tsx'",
     "lint": "next lint && prettier --check '**/*.ts' '**/*.tsx'"
   },
-  "husky": {
-    "hooks": {
-      "pre-commit": "pnpm run lint"
-    }
-  },
   "dependencies": {
     "@headlessui/react": "^1.7.17",
     "@heroicons/react": "^2.0.18",
@@ -24,7 +19,7 @@
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "tailwind-merge": "^1.14.0",
-    "visio-cms": "^0.0.3"
+    "visio-cms": "^0.1.5"
   },
   "devDependencies": {
     "@types/node": "^20",
