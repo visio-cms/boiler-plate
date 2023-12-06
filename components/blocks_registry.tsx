@@ -24,11 +24,27 @@ const registeredBlocks: Block[] = [
       subTitle:
         "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s",
       image: {},
+      alignment: 'left',
     },
     controllers: [
       { name: 'title', type: 'text', label: 'Title' },
       { name: 'subTitle', type: 'richText', label: 'Sub Title' },
       { name: 'image', type: 'image', label: 'Side Image' },
+      {
+        name: 'alignment',
+        type: 'radioGroup',
+        label: 'Alignment',
+        options: [
+          {
+            label: 'Left',
+            value: 'left',
+          },
+          {
+            label: 'Right',
+            value: 'right',
+          },
+        ],
+      },
     ],
     key: 'myFirstBlock',
   },
@@ -76,7 +92,7 @@ const registeredBlocks: Block[] = [
       subTitle:
         'Set the DATABASE_URL in the .env file to point to your existing database. If your database has no tables yet, read https://pris.ly/d/getting-started',
       color: '#FFFFFF',
-      initialCount: 0,
+      alignment: 'left',
       image: {
         path: '',
         width: 100,
@@ -90,7 +106,6 @@ const registeredBlocks: Block[] = [
       { name: 'subTitle', type: 'richText', label: 'Sub title' },
       { name: 'color', type: 'colorPicker', label: 'Button Color' },
       { name: 'backgroundColor', type: 'colorPicker', label: 'Background Color' },
-      { name: 'initialCount', type: 'number', label: 'Initial count' },
       { name: 'image', type: 'image', label: 'Background image' },
     ],
   },

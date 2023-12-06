@@ -5,11 +5,15 @@ type PropsT = {
   title: string;
   subTitle: string;
   image: ImageT;
+  alignment: string;
 };
 
-export default function MyFirstBlock({ title, subTitle, image }: PropsT) {
+export default function MyFirstBlock({ title, alignment, subTitle, image }: PropsT) {
   return (
-    <div className="text-center md:flex py-10 justify-center">
+    <div
+      className="text-center md:flex py-10 justify-center"
+      style={{ flexDirection: alignment == 'right' ? 'row-reverse' : 'row' }}
+    >
       <div className="grid p-4 place-items-center mb-3 md:mb-0  md:w-1/2 flex-shrink-0">
         <div className="text-left w-full lg:p-36 ">
           <h1 className="text-4xl pb-5">{title}</h1>
