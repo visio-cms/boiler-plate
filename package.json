@@ -1,6 +1,6 @@
 {
   "name": "visio-cms",
-  "version": "12.31.33",
+  "version": "13.31.33",
   "private": true,
   "scripts": {
     "dev": "next dev",
