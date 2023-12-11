@@ -54,7 +54,7 @@ const registeredBlocks: Block[] = [
     icon: <ImageIcon />,
     defaultInputs: { children: 'button' },
     controllers: [{ name: 'backgroundImage', type: 'image', label: 'Background Image' }],
-    key: 'workWithUs',
+    key: 'myFirstBlock',
   },
   {
     component: Collections,
