@@ -1,4 +1,4 @@
-import { Block } from 'visio-cms';
+import { BlockT } from 'visio-cms';
 import Hero from '@/components/blocks/hero';
 
 import { FileIcon, HamburgerMenuIcon, ImageIcon, LayersIcon, SunIcon } from '@radix-ui/react-icons';
@@ -14,7 +14,8 @@ import NewsLetter from '@/components/blocks/newsLetter';
 import Footer from '@/components/blocks/footer';
 import LoginForm from '@/components/blocks/login-form';
 import MyFirstBlock from '@/components/blocks/MyFirstBlock';
-const registeredBlocks: Block[] = [
+import { CustomControllerT } from '@/lib/types';
+const registeredBlocks: BlockT<CustomControllerT>[] = [
   {
     component: MyFirstBlock,
     title: 'My First Block',
@@ -53,8 +54,15 @@ const registeredBlocks: Block[] = [
     title: 'Work with us',
     icon: <ImageIcon />,
     defaultInputs: { children: 'button' },
-    controllers: [{ name: 'backgroundImage', type: 'image', label: 'Background Image' }],
-    key: 'myFirstBlock',
+    controllers: [
+      { name: 'backgroundImage', type: 'image', label: 'Background Image' },
+      {
+        name: 'date',
+        type: 'datePicker',
+        label: 'Choose date',
+      },
+    ],
+    key: 'workWithus',
   },
   {
     component: Collections,

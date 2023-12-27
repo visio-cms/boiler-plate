@@ -2,13 +2,13 @@
 
 import registeredBlocks from '@/components/blocks_registry';
 
-import { BuilderSectionsLayout } from 'visio-cms';
+import { Block, BuilderSectionsLayout } from 'visio-cms';
 
 const BuilderBlocks = ({ slug, apiKey }: { slug: string; apiKey: string }) => {
   return (
     <BuilderSectionsLayout
       slug={slug}
-      registeredBlocks={registeredBlocks}
+      registeredBlocks={registeredBlocks as Block[]}
       apiKey={apiKey}
       projectId={process.env.NEXT_PUBLIC_PROJECT_ID || ''}
     />

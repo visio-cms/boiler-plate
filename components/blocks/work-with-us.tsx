@@ -13,7 +13,7 @@ const stats = [
   { name: 'Paid time off', value: 'Unlimited' },
 ];
 
-export default function WorkWithUs({ backgroundImage }: { backgroundImage: ImageT }) {
+export default function WorkWithUs({ backgroundImage, date }: { backgroundImage: ImageT; date: string }) {
   return (
     <div className="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
       <img
@@ -55,6 +55,7 @@ export default function WorkWithUs({ backgroundImage }: { backgroundImage: Image
             Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet
             fugiat veniam occaecat fugiat aliqua.
           </p>
+          <p className="mt-6 text-lg leading-8 text-gray-300"> {new Date(date).toDateString()}</p>
         </div>
         <div className="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
           <div className="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">

@@ -4,7 +4,7 @@ import type { NextRequest } from 'next/server';
 export async function middleware(request: NextRequest) {
   const { nextUrl} = request;
   if (nextUrl.pathname === '/') {
-    return NextResponse.redirect(new URL('/index', request.url));
+    return NextResponse.redirect(new URL('/home', request.url));
   }  
 }
 

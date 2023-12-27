@@ -1,8 +1,20 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  darkMode: ['class'],
-  content: ['./pages/**/*.{ts,tsx}', './components/**/*.{ts,tsx}', './app/**/*.{ts,tsx}', './src/**/*.{ts,tsx}'],
+  content: [
+   './components/**/*.{ts,tsx}',
+   './app/**/*.{ts,tsx}',
+   "./node_modules/flowbite-react/lib/esm/**/*.js"],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        cyan: {
+          600: '#0D90B2 !important',
+          700: '#0F7491 !important'
+        }
+      }
+    },
   },
+  plugins: [
+    require('flowbite/plugin'),
+  ]
 };
