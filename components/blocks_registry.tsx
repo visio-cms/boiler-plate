@@ -60,6 +60,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
         name: 'date',
         type: 'datePicker',
         label: 'Choose date',
+        minDate: new Date(),
       },
     ],
     key: 'workWithus',
