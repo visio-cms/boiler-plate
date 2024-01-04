@@ -77,7 +77,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
         type: 'list',
         label: 'Collections',
         listDisplayedLabels: {
-          title: 'title',
+          title: 'link.url',
           caption: 'headline',
           image: 'image',
         },
@@ -111,6 +111,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
       },
     },
     controllers: [
+      { type: 'spacing', label: 'Spacing', name: 'spacing', allowControls: ['margin', 'padding'] },
       { name: 'title', type: 'text', label: 'Title' },
       { name: 'subTitle', type: 'richText', label: 'Sub title' },
       { name: 'color', type: 'colorPicker', label: 'Button Color' },
@@ -224,6 +225,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
     key: 'loginForm',
     icon: <Table2Icon />,
     defaultInputs: {},
+    controllers: [{ type: 'spacing', label: 'Spacing', name: 'spacing', allowControls: ['margin', 'padding'] }],
   },
 ];
 
