@@ -1,8 +1,8 @@
-import { BlockT } from 'visio-cms';
+import { Block } from 'visio-cms';
 import Hero from '@/components/blocks/hero';
 
-import { FileIcon, HamburgerMenuIcon, ImageIcon, LayersIcon, SunIcon } from '@radix-ui/react-icons';
-import { Box, Grid, RectangleHorizontalIcon, SheetIcon, Table2Icon } from 'lucide-react';
+import { ButtonIcon, FileIcon, HamburgerMenuIcon, ImageIcon, LayersIcon, SunIcon } from '@radix-ui/react-icons';
+import { Box, Grid, Image, RectangleHorizontalIcon, SheetIcon, Table2Icon, Type } from 'lucide-react';
 
 import ContactForm from '@/components/blocks/contact-form';
 import Metrics from '@/components/blocks/metics';
@@ -14,12 +14,16 @@ import NewsLetter from '@/components/blocks/newsLetter';
 import Footer from '@/components/blocks/footer';
 import LoginForm from '@/components/blocks/login-form';
 import MyFirstBlock from '@/components/blocks/MyFirstBlock';
-import { CustomControllerT } from '@/lib/types';
-const registeredBlocks: BlockT<CustomControllerT>[] = [
+import DatePickerController from './controllers/DatePickerController';
+import Text from './blocks/text';
+import ImageBox from './blocks/image';
+import ButtonBlock from './blocks/button';
+const registeredBlocks: Block[] = [
   {
     component: MyFirstBlock,
     title: 'My First Block',
     icon: <ImageIcon />,
+    category: 'Sections',
     defaultInputs: {
       title: 'This is my first title',
       subTitle:
@@ -52,15 +56,16 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
   {
     component: WorkWithUs,
     title: 'Work with us',
+    category: 'Sections',
     icon: <ImageIcon />,
     defaultInputs: { children: 'button' },
     controllers: [
       { name: 'backgroundImage', type: 'image', label: 'Background Image' },
       {
         name: 'date',
-        type: 'datePicker',
+        type: 'custom',
         label: 'Choose date',
-        minDate: new Date(),
+        controllerComponent: DatePickerController,
       },
     ],
     key: 'workWithus',
@@ -94,6 +99,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
   {
     component: Hero,
     title: 'Hero',
+    category: 'Heros',
     icon: <LayersIcon />,
     key: 'hero',
     defaultInputs: {
@@ -124,6 +130,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
     title: 'Contact form',
     icon: <FileIcon />,
     key: 'contactForm',
+    category: 'Forms',
     defaultInputs: {
       title: 'Contact us',
       subTitle: 'Get in touch with us with just a message',
@@ -136,6 +143,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
   {
     component: Metrics,
     title: 'Metrics',
+    category: 'Heros',
     key: 'metrics',
     icon: <HamburgerMenuIcon />,
     defaultInputs: {
@@ -178,7 +186,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
           caption: 'href.url', //map caption to item[x] link controller
         },
         schema: [
-          { type: 'text', name: 'name', label: 'Name' }, //add text controller
+          { type: 'text', name: 'name', label: 'Name', allowTranslation: true }, //add text controller
           { type: 'link', name: 'href', label: 'Link' }, //add text controller
           {
             type: 'list',
@@ -189,7 +197,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
               caption: 'href.url',
             },
             schema: [
-              { type: 'text', name: 'name', label: 'Name' },
+              { type: 'text', name: 'name', label: 'Name', allowTranslation: true },
               { type: 'link', name: 'href', label: 'Link' },
             ],
           },
@@ -207,6 +215,7 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
   {
     component: NewsLetter,
     title: 'News letter',
+    category: 'Forms',
     key: 'newsLetter',
     icon: <SheetIcon />,
     defaultInputs: {},
@@ -225,7 +234,35 @@ const registeredBlocks: BlockT<CustomControllerT>[] = [
     key: 'loginForm',
     icon: <Table2Icon />,
     defaultInputs: {},
-    controllers: [{ type: 'spacing', label: 'Spacing', name: 'spacing', allowControls: ['margin', 'padding'] }],
+    controllers: [],
+  },
+  {
+    component: Text,
+    title: 'Text',
+    key: 'text',
+    icon: <Type />,
+    category: 'Content',
+    defaultInputs: {
+      content: 'This is some dummy data',
+    },
+    controllers: [{ type: 'richText', label: 'Content', name: 'content', allowTranslation: true }],
+  },
+  {
+    component: ImageBox,
+    title: 'Image',
+    key: 'image',
+    icon: <Image />,
+    category: 'Content',
+    defaultInputs: {},
+    controllers: [{ type: 'image', label: 'Image', name: 'image' }],
+  },
+  {
+    component: ButtonBlock,
+    title: 'Button',
+    key: 'button',
+    icon: <ButtonIcon />,
+    defaultInputs: {},
+    controllers: [{ type: 'text', label: 'Text', name: 'text' }],
   },
 ];
 

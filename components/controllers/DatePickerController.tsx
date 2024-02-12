@@ -1,20 +1,20 @@
 'use client';
 import { DatePickerT } from '@/lib/types';
 import { Datepicker } from 'flowbite-react';
-import { CustomControllerProps } from 'visio-cms';
 
 export default function DatePickerController({
-  prop,
-  propIndex,
+  onChange,
   defaultValue,
-  handlePropValueChange,
-}: CustomControllerProps<DatePickerT>) {
+}: {
+  onChange: (newValue: any) => void;
+  defaultValue: any;
+}) {
   return (
     <div className="absolute w-full left-0 px-1 date-picker">
       <Datepicker
-        onSelectedDateChanged={(date) => handlePropValueChange(date, propIndex, prop)}
+        onSelectedDateChanged={(date) => onChange(date)}
         defaultValue={defaultValue}
-        minDate={prop.minDate}
+        // minDate={prop.minDate}
       />
     </div>
   );

@@ -7,3 +7,9 @@
     @apply py-2;
   }
 }
+
+.header {
+  display: fixed;
+  top: 0;
+  width: 100%;
+}
