@@ -6,12 +6,14 @@ import RenderPage from './renderPage';
 
 interface PageProps {
   params: {
+    locale: string;
     page: string[];
   };
 }
 
 export async function generateMetadata(props: PageProps): Promise<Metadata> {
-  const slug = `${props.params.page.join('/')}`;
+  let page = props.params?.page || ['home'];
+  const slug = `${page.join('/')}`;
   const headersList = headers();
   let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages/${slug}/meta`, {
     next: { revalidate: 0 },
@@ -32,7 +34,9 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
 }
 
 export default async function Page(props: PageProps) {
-  const slug = `${props.params.page.join('/')}`;
+  let page = props.params?.page || ['home'];
+  const slug = `${page.join('/')}`;
+  const locale = props.params.locale;
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
@@ -52,7 +56,7 @@ export default async function Page(props: PageProps) {
 
   // return <div>Hello</div>;
 
-  let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages/${slug}/${token?.value}`, {
+  let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages/${slug}/${locale}/${token?.value}`, {
     next: { revalidate: 0 },
     method: 'GET',
     headers: {
@@ -69,6 +73,11 @@ export default async function Page(props: PageProps) {
   const pageData = data.page;
 
   return (
-    <RenderPage data={pageData?.blocks || []} globals={data?.globals} slug={slug} isValidToken={data.isValidToken} />
+    <RenderPage
+      data={pageData?.blocks || []}
+      slug={slug}
+      locale={locale || data?.defaultLocale}
+      isValidToken={data.isValidToken}
+    />
   );
 }

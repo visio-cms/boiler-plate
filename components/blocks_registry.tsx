@@ -186,7 +186,7 @@ const registeredBlocks: Block[] = [
           caption: 'href.url', //map caption to item[x] link controller
         },
         schema: [
-          { type: 'text', name: 'name', label: 'Name' }, //add text controller
+          { type: 'text', name: 'name', label: 'Name', allowTranslation: true }, //add text controller
           { type: 'link', name: 'href', label: 'Link' }, //add text controller
           {
             type: 'list',
@@ -197,7 +197,7 @@ const registeredBlocks: Block[] = [
               caption: 'href.url',
             },
             schema: [
-              { type: 'text', name: 'name', label: 'Name' },
+              { type: 'text', name: 'name', label: 'Name', allowTranslation: true },
               { type: 'link', name: 'href', label: 'Link' },
             ],
           },
@@ -234,7 +234,7 @@ const registeredBlocks: Block[] = [
     key: 'loginForm',
     icon: <Table2Icon />,
     defaultInputs: {},
-    controllers: [{ type: 'spacing', label: 'Spacing', name: 'spacing', allowControls: ['margin', 'padding'] }],
+    controllers: [],
   },
   {
     component: Text,
@@ -242,8 +242,10 @@ const registeredBlocks: Block[] = [
     key: 'text',
     icon: <Type />,
     category: 'Content',
-    defaultInputs: {},
-    controllers: [{ type: 'richText', label: 'Content', name: 'content' }],
+    defaultInputs: {
+      content: 'This is some dummy data',
+    },
+    controllers: [{ type: 'richText', label: 'Content', name: 'content', allowTranslation: true }],
   },
   {
     component: ImageBox,

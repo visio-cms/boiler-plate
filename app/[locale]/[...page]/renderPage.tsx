@@ -7,17 +7,17 @@ const RenderPage = ({
   data,
   isValidToken,
   slug,
-  globals,
+  locale,
 }: {
   data: PageBlock[];
   isValidToken: JWTPayload | null;
   slug: string;
-  globals: GlobalBlock[];
+  locale: string;
 }) => {
   return (
     <>
       {isValidToken && <EditPageButton slug={slug} />}
-      <RenderPageContent globals={globals} data={data} registeredBlocks={registeredBlocks} />
+      <RenderPageContent locale={locale} data={data} registeredBlocks={registeredBlocks} />
     </>
   );
 };
