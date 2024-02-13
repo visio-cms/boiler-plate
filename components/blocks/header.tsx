@@ -19,55 +19,55 @@ type navigationT = {
 
 export default function Header({ navigation, logo, ...restProps }: { navigation: navigationT[]; logo: ImageT }) {
   return (
-    <Disclosure as="nav" className="bg-gray-800  w-full  top-0 z-30" {...restProps}>
+    <Disclosure as="nav" className="tw-bg-gray-800  tw-w-full  tw-top-0 tw-z-30" {...restProps}>
       {({ open }) => (
         <>
-          <div className="mx-auto max-w-7xl px-2 sm:!px-6 lg:px-8 z-10">
-            <div className="relative flex h-16 items-center justify-between">
-              <div className="absolute inset-y-0 left-0 flex items-center sm:!hidden">
+          <div className="tw-mx-auto tw-max-w-7xl tw-px-2 sm:!px-6 lg:tw-px-8 tw-z-10">
+            <div className="tw-relative tw-flex tw-h-16 tw-items-center tw-justify-between">
+              <div className="tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center sm:!hidden">
                 {/* Mobile menu button*/}
-                <Disclosure.Button className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white">
-                  <span className="absolute -inset-0.5" />
-                  <span className="sr-only">Open main menu</span>
+                <Disclosure.Button className="tw-relative tw-inline-flex tw-items-center tw-justify-center tw-rounded-md tw-p-2 tw-text-gray-400 hover:tw-bg-gray-700 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-white">
+                  <span className="tw-absolute tw--inset-0.5" />
+                  <span className="tw-sr-only">Open main menu</span>
                   {open ? (
-                    <XMarkIcon className="block h-6 w-6" aria-hidden="true" />
+                    <XMarkIcon className="tw-block tw-h-6 tw-w-6" aria-hidden="true" />
                   ) : (
-                    <Bars3Icon className="block h-6 w-6" aria-hidden="true" />
+                    <Bars3Icon className="tw-block tw-h-6 tw-w-6" aria-hidden="true" />
                   )}
                 </Disclosure.Button>
               </div>
-              <div className="flex flex-1 items-center justify-center sm:!items-stretch sm:!justify-start">
-                <div className="flex flex-shrink-0 items-center relative h-8 w-8">
+              <div className="tw-flex tw-flex-1 tw-items-center tw-justify-center sm:!items-stretch sm:!justify-start">
+                <div className="tw-flex tw-flex-shrink-0 tw-items-center tw-relative tw-h-8 tw-w-8">
                   <Link href="/">
-                    <Image src={logo?.url || ''} fill alt={logo?.alt || ''} />
+                    <Image src={`/en${logo?.url}`} fill alt={logo?.alt || ''} />
                   </Link>
                 </div>
-                <div className="hidden sm:!ml-6 sm:!block">
+                <div className="tw-hidden sm:!ml-6 sm:!block">
                   {navigation && (
-                    <div className="flex space-x-4">
+                    <div className="tw-flex tw-space-x-4">
                       {navigation?.map((item) => (
-                        <div key={item.name} className=" relative group/nav z-30">
+                        <div key={item.name} className=" tw-relative group/nav tw-z-30">
                           <Link
-                            href={item.href?.url || ''}
+                            href={`/en${item.href?.url}`}
                             target={item.href?.target}
                             className={classNames(
                               item?.current
-                                ? 'bg-gray-900 text-white'
-                                : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                              'rounded-md px-3 py-2 text-sm font-medium',
+                                ? 'tw-bg-gray-900 tw-text-white'
+                                : 'tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white',
+                              'tw-rounded-md tw-px-3 tw-py-2 tw-text-sm tw-font-medium',
                             )}
                             aria-current={item?.current ? 'page' : undefined}
                           >
                             {item.name}
                           </Link>
                           {item.subMenu && (
-                            <div className="absolute top-[30px] w-[200px] bg-white overflow-hidden text-slate-900 rounded-sm  flex-col hidden group-hover/nav:flex">
+                            <div className="tw-absolute top-[30px] w-[200px] tw-bg-white tw-overflow-hidden text-slate-900 tw-rounded-sm  tw-flex-col tw-hidden group-hover/nav:tw-flex">
                               {item.subMenu.map((menu) => (
                                 <Link
                                   key={menu.name}
                                   href={menu.href?.url || ''}
                                   target={menu.href?.target}
-                                  className="p-2 hover:bg-slate-100"
+                                  className="tw-p-2 hover:bg-slate-100"
                                 >
                                   {menu.name}
                                 </Link>
@@ -80,24 +80,24 @@ export default function Header({ navigation, logo, ...restProps }: { navigation:
                   )}
                 </div>
               </div>
-              <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:!static sm:!inset-auto sm:!ml-6 sm:!pr-0">
+              <div className="tw-absolute tw-inset-y-0 tw-right-0 tw-flex tw-items-center tw-pr-2 sm:!static sm:!inset-auto sm:!ml-6 sm:!pr-0">
                 <button
                   type="button"
-                  className="relative rounded-full bg-gray-800 p-1 text-gray-400 hover:text-white focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800"
+                  className="tw-relative tw-rounded-full tw-bg-gray-800 tw-p-1 tw-text-gray-400 hover:tw-text-white focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-white focus:tw-ring-offset-2 focus:tw-ring-offset-gray-800"
                 >
-                  <span className="absolute -inset-1.5" />
-                  <span className="sr-only">View notifications</span>
-                  <BellIcon className="h-6 w-6" aria-hidden="true" />
+                  <span className="tw-absolute tw--inset-1.5" />
+                  <span className="tw-sr-only">View notifications</span>
+                  <BellIcon className="tw-h-6 tw-w-6" aria-hidden="true" />
                 </button>
 
                 {/* Profile dropdown */}
-                <Menu as="div" className="relative ml-3">
+                <Menu as="div" className="tw-relative tw-ml-3">
                   <div>
-                    <Menu.Button className="relative flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
-                      <span className="absolute -inset-1.5" />
-                      <span className="sr-only">Open user menu</span>
+                    <Menu.Button className="tw-relative tw-flex tw-rounded-full tw-bg-gray-800 tw-text-sm focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-white focus:tw-ring-offset-2 focus:tw-ring-offset-gray-800">
+                      <span className="tw-absolute tw--inset-1.5" />
+                      <span className="tw-sr-only">Open user menu</span>
                       <img
-                        className="h-8 w-8 rounded-full"
+                        className="tw-h-8 tw-w-8 tw-rounded-full"
                         src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
                         alt=""
                       />
@@ -105,19 +105,22 @@ export default function Header({ navigation, logo, ...restProps }: { navigation:
                   </div>
                   <Transition
                     as={Fragment}
-                    enter="transition ease-out duration-100"
-                    enterFrom="transform opacity-0 scale-95"
-                    enterTo="transform opacity-100 scale-100"
-                    leave="transition ease-in duration-75"
-                    leaveFrom="transform opacity-100 scale-100"
-                    leaveTo="transform opacity-0 scale-95"
+                    enter="tw-transition tw-ease-out tw-duration-100"
+                    enterFrom="tw-transform tw-opacity-0 tw-scale-95"
+                    enterTo="tw-transform tw-opacity-100 tw-scale-100"
+                    leave="tw-transition tw-ease-in tw-duration-75"
+                    leaveFrom="tw-transform tw-opacity-100 tw-scale-100"
+                    leaveTo="tw-transform tw-opacity-0 tw-scale-95"
                   >
-                    <Menu.Items className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+                    <Menu.Items className="tw-absolute tw-right-0 tw-z-10 tw-mt-2 tw-w-48 tw-origin-top-right tw-rounded-md tw-bg-white tw-py-1 tw-shadow-lg tw-ring-1 tw-ring-black tw-ring-opacity-5 focus:tw-outline-none">
                       <Menu.Item>
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? 'tw-bg-gray-100' : '',
+                              'tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700',
+                            )}
                           >
                             Your Profile
                           </a>
@@ -127,7 +130,10 @@ export default function Header({ navigation, logo, ...restProps }: { navigation:
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? 'tw-bg-gray-100' : '',
+                              'tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700',
+                            )}
                           >
                             Settings
                           </a>
@@ -137,7 +143,10 @@ export default function Header({ navigation, logo, ...restProps }: { navigation:
                         {({ active }) => (
                           <a
                             href="#"
-                            className={classNames(active ? 'bg-gray-100' : '', 'block px-4 py-2 text-sm text-gray-700')}
+                            className={classNames(
+                              active ? 'tw-bg-gray-100' : '',
+                              'tw-block tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700',
+                            )}
                           >
                             Sign out
                           </a>
@@ -152,15 +161,17 @@ export default function Header({ navigation, logo, ...restProps }: { navigation:
 
           <Disclosure.Panel className="sm:!hidden">
             {navigation && (
-              <div className="space-y-1 px-2 pb-3 pt-2">
+              <div className="tw-space-y-1 tw-px-2 tw-pb-3 tw-pt-2">
                 {navigation.map((item) => (
                   <Link
                     key={item.name}
                     href={item.href?.url || ''}
                     target={item.href?.target}
                     className={classNames(
-                      item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-700 hover:text-white',
-                      'block rounded-md px-3 py-2 text-base font-medium',
+                      item.current
+                        ? 'tw-bg-gray-900 tw-text-white'
+                        : 'tw-text-gray-300 hover:tw-bg-gray-700 hover:tw-text-white',
+                      'tw-block tw-rounded-md tw-px-3 tw-py-2 tw-text-base tw-font-medium',
                     )}
                     aria-current={item.current ? 'page' : undefined}
                   >

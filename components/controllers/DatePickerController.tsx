@@ -10,7 +10,7 @@ export default function DatePickerController({
   defaultValue: any;
 }) {
   return (
-    <div className="absolute w-full left-0 px-1 date-picker">
+    <div className="tw-absolute tw-w-full tw-left-0 tw-px-1 date-picker">
       <Datepicker
         onSelectedDateChanged={(date) => onChange(date)}
         defaultValue={defaultValue}
