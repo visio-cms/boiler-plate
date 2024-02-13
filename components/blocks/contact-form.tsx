@@ -2,101 +2,104 @@ import { ChevronDownIcon, Subtitles } from 'lucide-react';
 
 export default function ContactForm({ title, subTitle }: { title: string; subTitle: string }) {
   return (
-    <div className="isolate bg-white px-6 py-24 sm:py-32 lg:px-8 relative overflow-hidden">
+    <div className="isolate tw-bg-white tw-px-6 tw-py-24 sm:tw-py-32 lg:tw-px-8 tw-relative tw-overflow-hidden">
       <div
-        className="absolute inset-x-0 top-[-10rem] -z-10 transform-gpu overflow-hidden blur-3xl sm:top-[-20rem]"
+        className="tw-absolute tw-inset-x-0 top-[-10rem] tw--z-10 tw-transform-gpu tw-overflow-hidden blur-3xl sm:top-[-20rem]"
         aria-hidden="true"
       >
         <div
-          className="relative left-1/2 -z-10 aspect-[1155/678] w-[36.125rem] max-w-none -translate-x-1/2 rotate-[30deg] bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
+          className="tw-relative tw-left-1/2 tw--z-10 aspect-[1155/678] w-[36.125rem] tw-max-w-none tw--translate-x-1/2 rotate-[30deg] tw-bg-gradient-to-tr from-[#ff80b5] to-[#9089fc] tw-opacity-30 sm:left-[calc(50%-40rem)] sm:w-[72.1875rem]"
           style={{
             clipPath:
               'polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)',
           }}
         />
       </div>
-      <div className="mx-auto max-w-2xl text-center">
-        <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">{title}</h2>
-        <p className="mt-2 text-lg leading-8 text-gray-600">{subTitle}</p>
+      <div className="tw-mx-auto tw-max-w-2xl tw-text-center">
+        <h2 className="tw-text-3xl tw-font-bold tw-tracking-tight tw-text-gray-900 sm:tw-text-4xl">{title}</h2>
+        <p className="tw-mt-2 tw-text-lg tw-leading-8 tw-text-gray-600">{subTitle}</p>
       </div>
-      <form action="#" method="POST" className="mx-auto mt-16 max-w-xl sm:mt-20">
-        <div className="grid grid-cols-1 gap-x-8 gap-y-6 sm:grid-cols-2">
+      <form action="#" method="POST" className="tw-mx-auto tw-mt-16 tw-max-w-xl sm:tw-mt-20">
+        <div className="tw-grid tw-grid-cols-1 tw-gap-x-8 tw-gap-y-6 sm:tw-grid-cols-2">
           <div>
-            <label htmlFor="first-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="first-name" className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
               First name
             </label>
-            <div className="mt-2.5">
+            <div className="tw-mt-2.5">
               <input
                 type="text"
                 name="first-name"
                 id="first-name"
                 autoComplete="given-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
               />
             </div>
           </div>
           <div>
-            <label htmlFor="last-name" className="block text-sm font-semibold leading-6 text-gray-900">
+            <label htmlFor="last-name" className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
               Last name
             </label>
-            <div className="mt-2.5">
+            <div className="tw-mt-2.5">
               <input
                 type="text"
                 name="last-name"
                 id="last-name"
                 autoComplete="family-name"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="company" className="block text-sm font-semibold leading-6 text-gray-900">
+          <div className="sm:tw-col-span-2">
+            <label htmlFor="company" className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
               Company
             </label>
-            <div className="mt-2.5">
+            <div className="tw-mt-2.5">
               <input
                 type="text"
                 name="company"
                 id="company"
                 autoComplete="organization"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="email" className="block text-sm font-semibold leading-6 text-gray-900">
+          <div className="sm:tw-col-span-2">
+            <label htmlFor="email" className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
               Email
             </label>
-            <div className="mt-2.5">
+            <div className="tw-mt-2.5">
               <input
                 type="email"
                 name="email"
                 id="email"
                 autoComplete="email"
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="phone-number" className="block text-sm font-semibold leading-6 text-gray-900">
+          <div className="sm:tw-col-span-2">
+            <label
+              htmlFor="phone-number"
+              className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900"
+            >
               Phone number
             </label>
-            <div className="relative mt-2.5">
-              <div className="absolute inset-y-0 left-0 flex items-center">
-                <label htmlFor="country" className="sr-only">
+            <div className="tw-relative tw-mt-2.5">
+              <div className="tw-absolute tw-inset-y-0 tw-left-0 tw-flex tw-items-center">
+                <label htmlFor="country" className="tw-sr-only">
                   Country
                 </label>
                 <select
                   id="country"
                   name="country"
-                  className="h-full rounded-md border-0 bg-transparent bg-none py-0 pl-4 pr-9 text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm"
+                  className="tw-h-full tw-rounded-md tw-border-0 tw-bg-transparent tw-bg-none tw-py-0 tw-pl-4 tw-pr-9 tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm"
                 >
                   <option>US</option>
                   <option>CA</option>
                   <option>EU</option>
                 </select>
                 <ChevronDownIcon
-                  className="pointer-events-none absolute right-3 top-0 h-full w-5 text-gray-400"
+                  className="tw-pointer-events-none tw-absolute tw-right-3 tw-top-0 tw-h-full tw-w-5 tw-text-gray-400"
                   aria-hidden="true"
                 />
               </div>
@@ -105,29 +108,29 @@ export default function ContactForm({ title, subTitle }: { title: string; subTit
                 name="phone-number"
                 id="phone-number"
                 autoComplete="tel"
-                className="block w-full rounded-md border-0 px-3.5 py-2 pl-20 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-pl-20 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
               />
             </div>
           </div>
-          <div className="sm:col-span-2">
-            <label htmlFor="message" className="block text-sm font-semibold leading-6 text-gray-900">
+          <div className="sm:tw-col-span-2">
+            <label htmlFor="message" className="tw-block tw-text-sm tw-font-semibold tw-leading-6 tw-text-gray-900">
               Message
             </label>
-            <div className="mt-2.5">
+            <div className="tw-mt-2.5">
               <textarea
                 name="message"
                 id="message"
                 rows={4}
-                className="block w-full rounded-md border-0 px-3.5 py-2 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
+                className="tw-block tw-w-full tw-rounded-md tw-border-0 tw-px-3.5 tw-py-2 tw-text-gray-900 tw-shadow-sm tw-ring-1 tw-ring-inset tw-ring-gray-300 placeholder:tw-text-gray-400 focus:tw-ring-2 focus:tw-ring-inset focus:tw-ring-indigo-600 sm:tw-text-sm sm:tw-leading-6"
                 defaultValue={''}
               />
             </div>
           </div>
         </div>
-        <div className="mt-10">
+        <div className="tw-mt-10">
           <button
             type="submit"
-            className="block w-full rounded-md bg-indigo-600 px-3.5 py-2.5 text-center text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+            className="tw-block tw-w-full tw-rounded-md tw-bg-indigo-600 tw-px-3.5 tw-py-2.5 tw-text-center tw-text-sm tw-font-semibold tw-text-white tw-shadow-sm hover:tw-bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
           >
             Let us talk
           </button>

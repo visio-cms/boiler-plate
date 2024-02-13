@@ -14,6 +14,7 @@ module.exports = {
       }
     },
   },
+  prefix: 'tw-',
   plugins: [
     require('flowbite/plugin'),
   ]
