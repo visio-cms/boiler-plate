@@ -15,7 +15,7 @@ export async function generateMetadata(props: PageProps): Promise<Metadata> {
   let page = props.params?.page || ['home'];
   const slug = `${page.join('/')}`;
   const headersList = headers();
-  let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages/${slug}/meta`, {
+  let res = await fetch(`${process.env.NEXT_PUBLIC_VISIO_END_POINT}/api/pages/meta?slug=${slug}`, {
     next: { revalidate: 0 },
     method: 'GET',
     headers: {
@@ -40,30 +40,17 @@ export default async function Page(props: PageProps) {
   const cookieStore = cookies();
   const token = cookieStore.get('token');
 
-  // const filter = {
-  //   slug: '/index-5287-7640-9103',
-  // };
-  // let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages?filter=${JSON.stringify(filter)}`, {
-  //   next: { revalidate: 0 },
-  //   method: 'GET',
-  //   headers: {
-  //     'x-api-key': `${process.env.API_KEY}`,
-  //     'x-project-id': `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
-  //   },
-  // });
-  // const data = await res.json();
-  // console.log(data);
-
-  // return <div>Hello</div>;
-
-  let res = await fetch(`${process.env.VISIO_END_POINT}/api/pages/${slug}/${locale}/${token?.value}`, {
-    next: { revalidate: 0 },
-    method: 'GET',
-    headers: {
-      'x-api-key': `${process.env.API_KEY}`,
-      'x-project-id': `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+  let res = await fetch(
+    `${process.env.NEXT_PUBLIC_VISIO_END_POINT}/api/pages?slug=${slug}&locale=${locale}&token=${token?.value}`,
+    {
+      next: { revalidate: 0 },
+      method: 'GET',
+      headers: {
+        'x-api-key': `${process.env.API_KEY}`,
+        'x-project-id': `${process.env.NEXT_PUBLIC_PROJECT_ID}`,
+      },
     },
-  });
+  );
 
   const data = await res.json();
 
